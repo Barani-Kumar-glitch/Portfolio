@@ -100,7 +100,7 @@ font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
 animation: float2 5s ease-in-out infinite;
 }
 
-.deco-tag-1 { top: 200px; left: 80px; }
+.deco-tag-1 { top: 220px; left: 425px; }
 .deco-tag-2 { top: 320px; right: 380px; }
 
 .deco-code {
