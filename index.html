@@ -36,388 +36,577 @@
 <link rel="icon" href="img/portfolio.png" type="image/png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="assets/css/style.css" />
+
+<!-- ===== ANIMATION & INTERACTION LIBRARIES ===== -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+<script src="https://unpkg.com/split-type"></script>
 
 </head>
 <body>
 
-<div class="cursor" id="cursor"></div>
-
-<!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo">BK.</a>
-  <div class="nav-links">
-    <a href="#projects">Work</a>
-    <a href="#stack">Stack</a>
-    <a href="#about">About</a>
-    <a href="mailto:boss002racer@gmail.com">Contact</a>
-  </div>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-
-  <!-- Floating deco elements -->
-  <div class="deco deco-tag deco-tag-1">Full-Stack Developer</div>
-  <div class="deco deco-tag deco-tag-2">B.E. Computer Science</div>
-
-  <div class="deco deco-github">
-    <div class="gh-avatar">B</div>
-    <div class="gh-name">Barani Kumar S</div>
-    <div class="gh-handle">@Barani-Kumar-glitch</div>
-    <div style="font-size:11px;color:var(--muted);line-height:1.5;">
-      🎯 Focusing<br/>
-      Building apps that solve<br/>real-world problems.
-    </div>
-    <div class="gh-stat">
-      <div><b>3</b><span>Repos</span></div>
-      <div><b>1</b><span>Star</span></div>
+  <!-- ===== PREMIUM PAGE LOADER ===== -->
+  <div id="loader">
+    <div class="loader-container">
+      <div class="loader-brand">BK<span>.</span></div>
+      <div class="loader-track">
+        <div class="loader-progress"></div>
+      </div>
+      <div class="loader-percentage">00</div>
+      <div class="loader-status">Initializing Portfolio...</div>
     </div>
   </div>
 
-  <div class="deco deco-code" style="pointer-events:none;">
-    <div class="dots"><span></span><span></span><span></span></div>
-    <div><span class="kw">def</span> <span class="fn">build_spotter</span>():</div>
-    <div>  <span class="str">"Fitness AI"</span></div>
-    <div>  calories = <span class="fn">calc</span>()</div>
-    <div>  plan = <span class="fn">AI.generate</span>()</div>
-    <div>  <span class="kw">return</span> <span class="fn">deploy</span>()</div>
+  <!-- ===== IMMERSIVE CANVAS BACKGROUND ===== -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- ===== STATIC NOISE TEXTURE OVERLAY ===== -->
+  <div class="noise-overlay"></div>
+
+  <!-- ===== LUXURY GRID LINES OVERLAY ===== -->
+  <div class="grid-overlay">
+    <div class="grid-line"></div>
+    <div class="grid-line"></div>
+    <div class="grid-line"></div>
+    <div class="grid-line"></div>
   </div>
 
-  <div class="deco deco-sticker" style="pointer-events:none;">
-    <span>⚡</span>Always<br/>building
+  <!-- ===== SCROLL PROGRESS BAR ===== -->
+  <div class="scroll-progress-container">
+    <div class="scroll-progress-bar"></div>
   </div>
 
-  <p class="hero-eyebrow">Full-Stack Developer &amp; UI/UX Enthusiast</p>
+  <!-- ===== CUSTOM INTERACTIVE CURSOR ===== -->
+  <div class="cursor-ring" id="cursor-ring"></div>
+  <div class="cursor-dot-inner" id="cursor-dot-inner"></div>
+  <div class="cursor-label" id="cursor-label">EXPLORE</div>
 
-  <h1 class="hero-title">
-    Barani<br/><em>Kumar</em> S
-  </h1>
-
-  <p class="hero-sub">
-    <span class="def-word">Development</span><br/>
-    the art of translating ideas into systems that work beautifully, scale effortlessly, and solve real problems.
-  </p>
-
-  <a href="#projects" class="hero-cta">View Work ↓</a>
-
-  <div class="scroll-hint">Scroll to explore</div>
-</section>
-
-<!-- MARQUEE -->
-<div class="marquee-wrap">
-  <div class="marquee-track">
-    <span class="marquee-item">Django <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Python <span class="marquee-dot"></span></span>
-    <span class="marquee-item">PostgreSQL <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Full-Stack <span class="marquee-dot"></span></span>
-    <span class="marquee-item">UI/UX <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Fitness Tech <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Data Analysis <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Cloud Security <span class="marquee-dot"></span></span>
-    <!-- duplicate for seamless loop -->
-    <span class="marquee-item">Django <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Python <span class="marquee-dot"></span></span>
-    <span class="marquee-item">PostgreSQL <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Full-Stack <span class="marquee-dot"></span></span>
-    <span class="marquee-item">UI/UX <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Fitness Tech <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Data Analysis <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Cloud Security <span class="marquee-dot"></span></span>
-  </div>
-</div>
-
-<!-- CURRENTLY COOKING -->
-<section style="padding: 80px 48px 40px;">
-  <div class="cooking reveal">
-    <p class="cooking-eyebrow">Currently cooking ☺︎</p>
-    <h2 class="cooking-title">Designing something new called<br/><em>Spotter AI</em></h2>
-    <p class="cooking-desc">A comprehensive fitness companion featuring calorie calculators, personalized weight loss/gain plans, interactive workout routines, and an integrated AI chat for a smarter fitness experience. Built with Django.</p>
-    <div class="cooking-stack">
-      <span class="stack-pill">Django</span>
-      <span class="stack-pill">Python</span>
-      <span class="stack-pill">PostgreSQL</span>
-      <span class="stack-pill">Bootstrap</span>
-      <span class="stack-pill">AI Chat</span>
+  <!-- ===== FLOATING DOCK NAVIGATION ===== -->
+  <nav class="dock-nav">
+    <a href="#" class="nav-logo magnetic" data-magnetic>BK.</a>
+    <div class="nav-links">
+      <a href="#projects" class="nav-link magnetic" data-magnetic><span>Work</span></a>
+      <a href="#stack" class="nav-link magnetic" data-magnetic><span>Stack</span></a>
+      <a href="#about" class="nav-link magnetic" data-magnetic><span>About</span></a>
+      <a href="mailto:boss002racer@gmail.com" class="nav-link nav-contact-btn magnetic" data-magnetic><span>Contact</span></a>
     </div>
-    <a href="https://spotter-fqcq.onrender.com/" target="_blank" class="cooking-link">Live on Rendor ↗</a>
+  </nav>
 
-    <div class="cooking-visual">
-      <div class="hi">✓ calories.calc()</div>
-      <div class="hi">✓ plan.generate()</div>
-      <div class="co">→ ai.respond()</div>
-      <div style="color:rgba(255,255,255,0.2)">...</div>
-      <div>🚀 deployed</div>
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero" id="hero">
+    
+    <!-- Floating Deco: Github Stats -->
+    <div class="deco deco-github mouse-parallax" data-speed="-1.5">
+      <div class="gh-header">
+        <div class="gh-avatar">B</div>
+        <div class="gh-meta">
+          <div class="gh-name">Barani Kumar S</div>
+          <div class="gh-handle">@Barani-Kumar-glitch</div>
+        </div>
+      </div>
+      <div class="gh-content">
+        <p class="gh-desc">
+          🎯 Focusing<br/>
+          Building apps that solve<br/>real-world problems.
+        </p>
+      </div>
+      <div class="gh-stat">
+        <div class="stat-box"><b>3</b><span>Repos</span></div>
+        <div class="stat-box"><b>1</b><span>Star</span></div>
+      </div>
+    </div>
+
+    <!-- Floating Deco: Code Editor Window -->
+    <div class="deco deco-code mouse-parallax" data-speed="1.2">
+      <div class="code-header">
+        <div class="dots"><span></span><span></span><span></span></div>
+        <span class="file-name">spotter.py</span>
+      </div>
+      <pre><code><span class="kw">def</span> <span class="fn">build_spotter</span>():
+  <span class="str">"Fitness AI"</span>
+  calories = <span class="fn">calc</span>()
+  plan = <span class="fn">AI.generate</span>()
+  <span class="kw">return</span> <span class="fn">deploy</span>()</code></pre>
+    </div>
+
+    <!-- Floating Deco: Always Building Rotating Badge -->
+    <div class="deco deco-sticker mouse-parallax" data-speed="-2">
+      <div class="sticker-inner">
+        <svg viewBox="0 0 100 100" class="sticker-text-svg">
+          <path id="circlePath" d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" fill="transparent" />
+          <text>
+            <textPath href="#circlePath" startOffset="0%">ALWAYS BUILDING • ALWAYS LEARNING • </textPath>
+          </text>
+        </svg>
+        <span class="sticker-emoji">⚡</span>
+      </div>
+    </div>
+
+    <!-- Floating tags -->
+    <div class="deco deco-tag deco-tag-1 mouse-parallax" data-speed="0.8">Full-Stack Developer</div>
+    <div class="deco deco-tag deco-tag-2 mouse-parallax" data-speed="-0.8">B.E. Computer Science</div>
+
+    <!-- Hero Content -->
+    <div class="hero-body">
+      <p class="hero-eyebrow reveal-line">Full-Stack Developer &amp; UI/UX Enthusiast</p>
+      
+      <h1 class="hero-title reveal-word-by-word">
+        Barani<br/><em>Kumar</em> S
+      </h1>
+
+      <div class="hero-bottom">
+        <p class="hero-sub reveal-fade">
+          <span class="def-word">Development</span><br/>
+          the art of translating ideas into systems that work beautifully, scale effortlessly, and solve real problems.
+        </p>
+
+        <div class="hero-cta-wrapper reveal-fade">
+          <a href="#projects" class="hero-cta magnetic" data-magnetic>
+            <span class="cta-text">View Work</span>
+            <span class="cta-arrow">↓</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-hint-wrapper reveal-fade">
+      <div class="scroll-hint">
+        <span class="scroll-hint-line"></span>
+        <span class="scroll-hint-text">Scroll to explore</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MARQUEE RIBBON ===== -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span class="marquee-item">Django <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Python <span class="marquee-dot"></span></span>
+      <span class="marquee-item">PostgreSQL <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Full-Stack <span class="marquee-dot"></span></span>
+      <span class="marquee-item">UI/UX <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Fitness Tech <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Data Analysis <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Cloud Security <span class="marquee-dot"></span></span>
+      <!-- duplicate for seamless loop -->
+      <span class="marquee-item">Django <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Python <span class="marquee-dot"></span></span>
+      <span class="marquee-item">PostgreSQL <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Full-Stack <span class="marquee-dot"></span></span>
+      <span class="marquee-item">UI/UX <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Fitness Tech <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Data Analysis <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Cloud Security <span class="marquee-dot"></span></span>
     </div>
   </div>
-</section>
 
-<!-- PROJECTS -->
-<section id="projects">
-  <p class="section-label">Recently Made ▶</p>
+  <!-- ===== CURRENTLY COOKING SECTION ===== -->
+  <section class="cooking-section" id="cooking">
+    <div class="cooking tilt-card" data-tilt>
+      <div class="cooking-glow"></div>
+      <div class="cooking-inner">
+        <div class="cooking-content">
+          <p class="cooking-eyebrow reveal-line">Currently cooking ☺︎</p>
+          <h2 class="cooking-title reveal-word-by-word">Designing something new called<br/><em>Spotter AI</em></h2>
+          <p class="cooking-desc reveal-fade">A comprehensive fitness companion featuring calorie calculators, personalized weight loss/gain plans, interactive workout routines, and an integrated AI chat for a smarter fitness experience. Built with Django.</p>
+          
+          <div class="cooking-stack reveal-fade">
+            <span class="stack-pill">Django</span>
+            <span class="stack-pill">Python</span>
+            <span class="stack-pill">PostgreSQL</span>
+            <span class="stack-pill">Bootstrap</span>
+            <span class="stack-pill">AI Chat</span>
+          </div>
+          
+          <div class="cooking-action reveal-fade">
+            <a href="https://spotter-fqcq.onrender.com/" target="_blank" class="cooking-link magnetic" data-magnetic>
+              <span>Live on Render ↗</span>
+            </a>
+          </div>
+        </div>
 
-  <div class="projects-grid">
+        <div class="cooking-visual-wrapper reveal-fade">
+          <div class="cooking-visual">
+            <div class="visual-header">
+              <span class="visual-dot"></span>
+              <span class="visual-title">process_monitor.sh</span>
+            </div>
+            <div class="visual-body">
+              <div class="hi">✓ calories.calc()</div>
+              <div class="hi">✓ plan.generate()</div>
+              <div class="co">→ ai.respond()</div>
+              <div class="dots-blink">...</div>
+              <div class="deployed-tag">🚀 deployed</div>
+            </div>
+          </div>
+          <!-- 3D Organic SVG blob asset inside wrapper -->
+          <div class="visual-shape-underlay">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <path fill="var(--accent)" opacity="0.15" d="M44.7,-74.6C58.3,-68.8,70,-57.4,77.7,-43.6C85.4,-29.8,89.1,-13.7,87.8,1.8C86.5,17.3,80.2,32.2,71.5,45C62.8,57.7,51.8,68.4,38.5,74.5C25.3,80.7,9.7,82.4,-5.2,80.6C-20.2,78.8,-39.9,73.5,-53.4,63.5C-66.8,53.4,-73.9,38.6,-78.9,23C-83.9,7.4,-86.7,-9.1,-82.9,-24.4C-79.1,-39.7,-68.6,-53.9,-55.1,-59.8C-41.6,-65.7,-25.1,-63.3,-9.4,-67.2C6.3,-71.1,22.6,-81.3,37.3,-81.4C40,-81.4,42.4,-77.9,44.7,-74.6Z" transform="translate(100 100)" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Featured: Spotter -->
-    <a href="https://spotter-fqcq.onrender.com/" target="_blank" class="project-card featured reveal">
-      <div class="card-content">
-        <p class="project-year">2025 — Live</p>
-        <h3 class="project-name">Spotter</h3>
-        <p class="project-desc">A dedicated fitness companion application featuring calorie calculators, personalized weight loss/gain plans, and interactive workout routines. Integrated Spotter AI for intelligent coaching and guidance — all on a robust Django backend with custom-styled frontend.</p>
+  <!-- ===== PROJECTS SECTION ===== -->
+  <section id="projects" class="projects-section">
+    <div class="section-header">
+      <p class="section-label">Recently Made ▶</p>
+    </div>
+
+    <div class="projects-grid">
+
+      <!-- Featured Project 1: Spotter -->
+      <a href="https://spotter-fqcq.onrender.com/" target="_blank" class="project-card featured tilt-card" data-tilt data-cursor-text="OPEN">
+        <div class="project-card-glow"></div>
+        <div class="card-content">
+          <p class="project-year">2025 — Live</p>
+          <h3 class="project-name">Spotter</h3>
+          <p class="project-desc">A dedicated fitness companion application featuring calorie calculators, personalized weight loss/gain plans, and interactive workout routines. Integrated Spotter AI for intelligent coaching and guidance — all on a robust Django backend with custom-styled frontend.</p>
+          <div class="project-tags">
+            <span class="project-tag">Django</span>
+            <span class="project-tag">Python</span>
+            <span class="project-tag">PostgreSQL</span>
+            <span class="project-tag"> Bootstarp CSS3</span>
+            <span class="project-tag">AI Integration</span>
+          </div>
+        </div>
+        <div class="card-visual">
+          <div class="featured-badge">🏋️</div>
+          <!-- Canvas element inside card for dynamic 3D-inspired Web particles -->
+          <canvas class="card-canvas-particles" data-color="accent"></canvas>
+        </div>
+        <div class="project-arrow">↗</div>
+      </a>
+
+      <!-- Featured Project 2: Project Showcase Portal -->
+      <a href="https://project-showcase-portal.onrender.com/" target="_blank" class="project-card featured tilt-card" data-tilt data-cursor-text="OPEN">
+        <div class="project-card-glow"></div>
+        <div class="card-content">
+          <p class="project-year">2026 — Live</p>
+          <h3 class="project-name">Project Showcase Portal</h3>
+          <p class="project-desc">A project management system bridging the gap between administrative tracking and client engagement. Centralized hub for managing project lifecycles, financial data, and client requests through distinct, secure portals.</p>
+          <div class="project-tags">
+            <span class="project-tag">Django</span>
+            <span class="project-tag">Python</span>
+            <span class="project-tag">PostgreSQL</span>
+            <span class="project-tag"> Bootstrap CSS3</span>
+            <span class="project-tag">Client Management</span>
+          </div>
+        </div>
+        <div class="card-visual">
+          <div class="featured-badge">🗂️</div>
+          <!-- Canvas element inside card for dynamic 3D-inspired Web particles -->
+          <canvas class="card-canvas-particles" data-color="accent2"></canvas>
+        </div>
+        <div class="project-arrow">↗</div>
+      </a>
+
+      <!-- Standard Project 3: Chat Based Application -->
+      <a href="https://github.com/Barani-Kumar-glitch/" target="_blank" class="project-card standard tilt-card" data-tilt data-cursor-text="GITHUB">
+        <div class="project-card-glow"></div>
+        <p class="project-year">2026 -</p>
+        <h3 class="project-name">Chat Based Software Application</h3>
+        <p class="project-desc">A chat-based web application is a dynamic digital platform that enables users to communicate and exchange data in real time through a browser interface. Powered by efficient backend architectures and bi-directional communication protocols like WebSockets, these applications ensure that messages, files, and updates are transmitted instantly without requiring a page refresh.</p>
         <div class="project-tags">
           <span class="project-tag">Django</span>
-          <span class="project-tag">Python</span>
           <span class="project-tag">PostgreSQL</span>
-          <span class="project-tag"> Bootstarp CSS3</span>
-          <span class="project-tag">AI Integration</span>
+          <span class="project-tag">Tailwind CSS</span>
+          <span class="project-tag">React JS</span>
         </div>
-      </div>
-      <div class="card-visual">
-        <div class="featured-badge">🏋️</div>
-      </div>
-      <div class="project-arrow">↗</div>
-    </a>
+        <div class="project-arrow">↗</div>
+      </a>
 
-    <!-- Project Showcase Portal -->
-    <a href="https://project-showcase-portal.onrender.com/" target="_blank" class="project-card featured reveal">
-      <div class="card-content">
-        <p class="project-year">2026 — Live</p>
-        <h3 class="project-name">Project Showcase Portal</h3>
-        <p class="project-desc">A project management system bridging the gap between administrative tracking and client engagement. Centralized hub for managing project lifecycles, financial data, and client requests through distinct, secure portals.</p>
+      <!-- Standard Project 4: Dev Roadmap Card (The Horizon) -->
+      <div class="project-card standard horizon-card tilt-card" data-tilt data-cursor-text="LEARN MORE">
+        <div class="project-card-glow"></div>
+        <p class="project-year">Next Chapter</p>
+        <h3 class="project-name">The Horizon</h3>
+        <p class="project-desc">Mastering Cloud Security, Advanced Database Management, and diving deep into Data Analysis to build more intelligent, scalable applications.</p>
         <div class="project-tags">
-          <span class="project-tag">Django</span>
-          <span class="project-tag">Python</span>
-          <span class="project-tag">PostgreSQL</span>
-          <span class="project-tag"> Bootstrap CSS3</span>
-          <span class="project-tag">Client Management</span>
-        </div>
-      </div>
-      <div class="card-visual">
-        <div class="featured-badge">🗂️</div>
-      </div>
-      <div class="project-arrow">↗</div>
-    </a>
-
-
-    <!-- Whats app cloning -->
-    <a href="https://github.com/Barani-Kumar-glitch/" target="_blank" class="project-card reveal" style="transition-delay:0.1s">
-      <p class="project-year">2026 -</p>
-      <h3 class="project-name">Chat Based Software Application</h3>
-      <p class="project-desc">A chat-based web application is a dynamic digital platform that enables users to communicate and exchange data in real time through a browser interface. Powered by efficient backend architectures and bi-directional communication protocols like WebSockets, these applications ensure that messages, files, and updates are transmitted instantly without requiring a page refresh.</p>
-      <div class="project-tags">
-        <span class="project-tag">Django</span>
-        <span class="project-tag">PostgreSQL</span>
-        <span class="project-tag">Tailwind CSS</span>
-        <span class="project-tag">React JS</span>
-      </div>
-      <div class="project-arrow">↗</div>
-    </a>
-
-    <!-- Dev Roadmap Card -->
-    <div class="project-card reveal" style="transition-delay:0.2s; background: linear-gradient(135deg, var(--ink) 0%, #2d2520 100%); color: var(--bg);">
-      <p class="project-year" style="color:rgba(245,242,237,0.4);">Next Chapter</p>
-      <h3 class="project-name" style="color:var(--bg);">The Horizon</h3>
-      <p class="project-desc" style="color:rgba(245,242,237,0.55);">Mastering Cloud Security, Advanced Database Management, and diving deep into Data Analysis to build more intelligent, scalable applications.</p>
-      <div class="project-tags" style="margin-top:auto;">
-        <span class="project-tag" style="background:rgba(255,255,255,0.07);color:rgba(245,242,237,0.5);border-color:rgba(255,255,255,0.08);">Cloud Security</span>
-        <span class="project-tag" style="background:rgba(255,255,255,0.07);color:rgba(245,242,237,0.5);border-color:rgba(255,255,255,0.08);">Data Analysis</span>
-        <span class="project-tag" style="background:rgba(255,255,255,0.07);color:rgba(245,242,237,0.5);border-color:rgba(255,255,255,0.08);">Advanced DB</span>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- TECH STACK -->
-<section id="stack">
-  <p class="section-label">Tech Stack ⌥</p>
-
-  <div class="stack-section">
-    <div class="stack-category reveal">
-      <p class="stack-category-label">Backend</p>
-      <div class="stack-row">
-        <span class="tech-pill"><span class="icon">🐍</span> Python (Django)</span>
-        <span class="tech-pill"><span class="icon">🐘</span> PostgreSQL</span>
-        <span class="tech-pill"><span class="icon">🗄️</span> SQL</span>
-      </div>
-    </div>
-    <div class="stack-category reveal" style="transition-delay:0.1s">
-      <p class="stack-category-label">Frontend</p>
-      <div class="stack-row">
-        <span class="tech-pill"><span class="icon">🌐</span> HTML5</span>
-        <span class="tech-pill"><span class="icon">🎨</span> CSS3</span>
-        <span class="tech-pill"><span class="icon">🅱️</span> Bootstrap</span>
-        <span class="tech-pill"><span class="icon">😮</span> React</span>
-        <span class="tech-pill"><span class="icon">✏️</span> UI/UX Design</span>
-      </div>
-    </div>
-    <div class="stack-category reveal" style="transition-delay:0.2s">
-      <p class="stack-category-label">Problem Solving & Tools</p>
-      <div class="stack-row">
-        <span class="tech-pill"><span class="icon">⚙️</span> C++ (Intermediate)</span>
-        <span class="tech-pill"><span class="icon">☕</span> Python (Beginner)</span>
-        <span class="tech-pill"><span class="icon">🐙</span> Git & GitHub</span>
-        <span class="tech-pill"><span class="icon">🚀</span> Render & Netlify (Deploy)</span>
-      </div>
-    </div>
-    <div class="stack-category reveal" style="transition-delay:0.3s">
-      <p class="stack-category-label">Currently Learning</p>
-      <div class="stack-row">
-        <span class="tech-pill"><span class="icon">📊</span> Data Analysis</span>
-        <span class="tech-pill"><span class="icon">☁️</span> Cloud Security</span>
-        <span class="tech-pill"><span class="icon">🔐</span> Advanced DB Management</span>
-        <span class="tech-pill"><span class="icon">⚡</span> Advanced JS</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CURRENT SOFTWARE TRENDS -->
-<div class="trends reveal">
-  <h2>Current Development in<br/>Software Field</h2>
-  <p class="sub">What's shaping the world of software development in 2025–2026</p>
-  <div class="trends-grid">
-    <div class="trend-card">
-      <div class="trend-icon">🤖</div>
-      <h3 class="trend-title">AI-Augmented Development</h3>
-      <p class="trend-desc">Large language models are now embedded in the developer workflow — from code generation to automated testing. Tools like GitHub Copilot and Claude code are redefining how fast software ships.</p>
-      <span class="trend-tag">Hot in 2026</span>
-    </div>
-    <div class="trend-card">
-      <div class="trend-icon">☁️</div>
-      <h3 class="trend-title">Cloud-Native & Edge</h3>
-      <p class="trend-desc">Serverless architectures, containerization (Docker/K8s), and edge computing are becoming the default. Low-latency, globally distributed apps are no longer optional for competitive products.</p>
-      <span class="trend-tag">Infrastructure</span>
-    </div>
-    <div class="trend-card">
-      <div class="trend-icon">🔐</div>
-      <h3 class="trend-title">Security-First Engineering</h3>
-      <p class="trend-desc">DevSecOps is mainstream. With rising cyber threats, security is baked into the development lifecycle — not bolted on. Zero-trust architecture and secrets management are now core skills.</p>
-      <span class="trend-tag">Critical</span>
-    </div>
-    <div class="trend-card">
-      <div class="trend-icon">📊</div>
-      <h3 class="trend-title">Data-Driven Applications</h3>
-      <p class="trend-desc">Modern apps are powered by real-time analytics and ML pipelines. Developers who understand data modeling, warehousing, and stream processing have a significant edge.</p>
-      <span class="trend-tag">Growing Fast</span>
-    </div>
-    <div class="trend-card">
-      <div class="trend-icon">🧩</div>
-      <h3 class="trend-title">Micro-Frontends & Composable UI</h3>
-      <p class="trend-desc">Breaking monolithic frontends into independently deployed micro-frontends enables teams to ship faster. Component-driven design systems are accelerating product iteration cycles.</p>
-      <span class="trend-tag">Architecture</span>
-    </div>
-    <div class="trend-card">
-      <div class="trend-icon">⚡</div>
-      <h3 class="trend-title">Full-Stack AI Apps</h3>
-      <p class="trend-desc">The new full-stack includes LLM APIs, vector databases, and RAG pipelines. Developers who can build end-to-end AI-powered features — from backend to UX — are in extreme demand.</p>
-      <span class="trend-tag">The Future</span>
-    </div>
-  </div>
-</div>
-
-<!-- ABOUT -->
-<section id="about" style="padding-top:100px;">
-  <p class="section-label">About ⌘</p>
-
-  <div class="about-layout">
-    <div class="about-text reveal">
-      <h2>I build things<br/>that <em>actually</em><br/>work.</h2>
-      <p>I'm a passionate <strong>Full-Stack Developer</strong> and UI/UX enthusiast currently pursuing a Bachelor of Engineering in Computer Science. I specialize in building functional, aesthetically bold applications and solving complex problems through efficient code.</p>
-      <p>While I value clean design and great user experience, my work centers on practical outcomes — applications that real users rely on. <strong>Contact me about Freelancing, Django, Database Design, and Fitness Tech.</strong></p>
-      <p>I'm continually sharpening my critical thinking and expanding into <strong>Data Analysis, Cloud Security, and Advanced Database Management</strong> as my next frontier.</p>
-      <div style="margin-top: 32px; display: flex; gap: 16px; flex-wrap: wrap;">
-        <a href="https://github.com/Barani-Kumar-glitch" target="_blank" class="connect-link secondary" style="font-size:12px;padding:10px 20px;">GitHub ↗</a>
-        <a href="mailto:boss002racer@gmail.com" class="connect-link primary" style="font-size:12px;padding:10px 20px;">Email me</a>
-      </div>
-    </div>
-
-    <div class="about-aside reveal" style="transition-delay:0.15s">
-      <div class="about-stat-row">
-        <div class="about-stat">
-          <div class="num">3</div>
-          <div class="label">Public Repos</div>
-        </div>
-        <div class="about-stat">
-          <div class="num">2</div>
-          <div class="label">Live Projects</div>
-        </div>
-        <div class="about-stat">
-          <div class="num">78 %</div>
-          <div class="label">B.E/ Computer Sci.</div>
-        </div>
-        <div class="about-stat">
-          <div class="num">∞</div>
-          <div class="label">Ideas Building</div>
+          <span class="project-tag">Cloud Security</span>
+          <span class="project-tag">Data Analysis</span>
+          <span class="project-tag">Advanced DB</span>
         </div>
       </div>
 
-      <div class="focus-list">
-        <p class="stack-category-label" style="margin-bottom:4px;">Current Focus</p>
-        <div class="focus-item">
-          <div class="focus-dot"></div>
-          <div>
-            <strong>Refining Skills</strong>
-            <p>Improving critical thinking and advanced problem-solving techniques.</p>
+    </div>
+  </section>
+
+  <!-- ===== TECH STACK SECTION (3D SPINNING CAROUSEL) ===== -->
+  <section id="stack" class="stack-section">
+    <div class="section-header">
+      <p class="section-label">Tech Stack ⌥</p>
+    </div>
+
+    <!-- 3D Cylinder Container -->
+    <div class="tech-carousel-container" id="tech-carousel-container" data-cursor-text="DRAG TO SPIN">
+      <div class="tech-carousel-track" id="tech-carousel-track">
+        
+        <!-- Category 1: Backend -->
+        <div class="tech-carousel-card">
+          <div class="stack-category">
+            <div class="stack-category-header">
+              <span class="stack-cat-num">01</span>
+              <p class="stack-category-label">Backend</p>
+            </div>
+            <div class="stack-row">
+              <span class="tech-pill magnetic" data-magnetic><span class="icon">🐍</span> Python (Django)</span>
+              <span class="tech-pill magnetic" data-magnetic><span class="icon">🐘</span> PostgreSQL</span>
+              <span class="tech-pill magnetic" data-magnetic><span class="icon">🗄️</span> SQL</span>
+            </div>
           </div>
         </div>
-        <div class="focus-item">
-          <div class="focus-dot"></div>
-          <div>
-            <strong>Technical Growth</strong>
-            <p>Diving deeper into Data Analysis to build more intelligent applications.</p>
+
+        <!-- Category 2: Frontend -->
+        <div class="tech-carousel-card">
+          <div class="stack-category">
+            <div class="stack-category-header">
+              <span class="stack-cat-num">02</span>
+              <p class="stack-category-label">Frontend</p>
+            </div>
+            <div class="stack-row">
+              <span class="tech-pill magnetic" data-magnetic><span class="icon">🌐</span> HTML5</span>
+              <span class="tech-pill magnetic" data-magnetic><span class="icon">🎨</span> CSS3</span>
+              <span class="tech-pill magnetic" data-magnetic><span class="icon">🅱️</span> Bootstrap</span>
+              <span class="tech-pill magnetic" data-magnetic><span class="icon">😮</span> React</span>
+              <span class="tech-pill magnetic" data-magnetic><span class="icon">✏️</span> UI/UX Design</span>
+            </div>
           </div>
         </div>
-        <div class="focus-item">
-          <div class="focus-dot"></div>
-          <div>
-            <strong>The Horizon</strong>
-            <p>Mastering Cloud Security and Advanced Database Management.</p>
+
+        <!-- Category 3: Problem Solving & Tools -->
+        <div class="tech-carousel-card">
+          <div class="stack-category">
+            <div class="stack-category-header">
+              <span class="stack-cat-num">03</span>
+              <p class="stack-category-label">Problem Solving & Tools</p>
+            </div>
+            <div class="stack-row">
+              <span class="tech-pill magnetic" data-magnetic><span class="icon">⚙️</span> C++ (Intermediate)</span>
+              <span class="tech-pill magnetic" data-magnetic><span class="icon">☕</span> Python (Beginner)</span>
+              <span class="tech-pill magnetic" data-magnetic><span class="icon">🐙</span> Git & GitHub</span>
+              <span class="tech-pill magnetic" data-magnetic><span class="icon">🚀</span> Render & Netlify (Deploy)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 4: Currently Learning -->
+        <div class="tech-carousel-card">
+          <div class="stack-category">
+            <div class="stack-category-header">
+              <span class="stack-cat-num">04</span>
+              <p class="stack-category-label">Currently Learning</p>
+            </div>
+            <div class="stack-row">
+              <span class="tech-pill magnetic" data-magnetic><span class="icon">📊</span> Data Analysis</span>
+              <span class="tech-pill magnetic" data-magnetic><span class="icon">☁️</span> Cloud Security</span>
+              <span class="tech-pill magnetic" data-magnetic><span class="icon">🔐</span> Advanced DB Management</span>
+              <span class="tech-pill magnetic" data-magnetic><span class="icon">⚡</span> Advanced JS</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TRENDS SECTION ===== -->
+  <section class="trends-section">
+    <div class="trends reveal-fade">
+      <div class="trends-header">
+        <h2 class="reveal-word-by-word">Current Development in<br/>Software Field</h2>
+        <p class="sub reveal-line">What's shaping the world of software development in 2025–2026</p>
+      </div>
+      
+      <div class="trends-grid">
+        <!-- Trend 1 -->
+        <div class="trend-card tilt-card" data-tilt>
+          <div class="trend-card-inner">
+            <div class="trend-icon">🤖</div>
+            <h3 class="trend-title">AI-Augmented Development</h3>
+            <p class="trend-desc">Large language models are now embedded in the developer workflow — from code generation to automated testing. Tools like GitHub Copilot and Claude code are redefining how fast software ships.</p>
+            <span class="trend-tag">Hot in 2026</span>
+          </div>
+        </div>
+
+        <!-- Trend 2 -->
+        <div class="trend-card tilt-card" data-tilt>
+          <div class="trend-card-inner">
+            <div class="trend-icon">☁️</div>
+            <h3 class="trend-title">Cloud-Native & Edge</h3>
+            <p class="trend-desc">Serverless architectures, containerization (Docker/K8s), and edge computing are becoming the default. Low-latency, globally distributed apps are no longer optional for competitive products.</p>
+            <span class="trend-tag">Infrastructure</span>
+          </div>
+        </div>
+
+        <!-- Trend 3 -->
+        <div class="trend-card tilt-card" data-tilt>
+          <div class="trend-card-inner">
+            <div class="trend-icon">🔐</div>
+            <h3 class="trend-title">Security-First Engineering</h3>
+            <p class="trend-desc">DevSecOps is mainstream. With rising cyber threats, security is baked into the development lifecycle — not bolted on. Zero-trust architecture and secrets management are now core skills.</p>
+            <span class="trend-tag">Critical</span>
+          </div>
+        </div>
+
+        <!-- Trend 4 -->
+        <div class="trend-card tilt-card" data-tilt>
+          <div class="trend-card-inner">
+            <div class="trend-icon">📊</div>
+            <h3 class="trend-title">Data-Driven Applications</h3>
+            <p class="trend-desc">Modern apps are powered by real-time analytics and ML pipelines. Developers who understand data modeling, warehousing, and stream processing have a significant edge.</p>
+            <span class="trend-tag">Growing Fast</span>
+          </div>
+        </div>
+
+        <!-- Trend 5 -->
+        <div class="trend-card tilt-card" data-tilt>
+          <div class="trend-card-inner">
+            <div class="trend-icon">🧩</div>
+            <h3 class="trend-title">Micro-Frontends & Composable UI</h3>
+            <p class="trend-desc">Breaking monolithic frontends into independently deployed micro-frontends enables teams to ship faster. Component-driven design systems are accelerating product iteration cycles.</p>
+            <span class="trend-tag">Architecture</span>
+          </div>
+        </div>
+
+        <!-- Trend 6 -->
+        <div class="trend-card tilt-card" data-tilt>
+          <div class="trend-card-inner">
+            <div class="trend-icon">⚡</div>
+            <h3 class="trend-title">Full-Stack AI Apps</h3>
+            <p class="trend-desc">The new full-stack includes LLM APIs, vector databases, and RAG pipelines. Developers who can build end-to-end AI-powered features — from backend to UX — are in extreme demand.</p>
+            <span class="trend-tag">The Future</span>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- CONNECT -->
-<section class="connect">
-  <h2 class="reveal">Let's<br/><em>build</em><br/>together.</h2>
-  <p class="reveal" style="transition-delay:0.1s">Open to collaborations, Freelancer, and interesting problems to solve.</p>
-  <div class="connect-links reveal" style="transition-delay:0.2s">
-    <a href="mailto:boss002racer@gmail.com" class="connect-link primary">boss002racer@gmail.com</a>
-    <a href="https://github.com/Barani-Kumar-glitch" target="_blank" class="connect-link secondary">GitHub ↗</a>
-  </div>
-</section>
+  <!-- ===== ABOUT SECTION ===== -->
+  <section id="about" class="about-section">
+    <div class="section-header">
+      <p class="section-label">About ⌘</p>
+    </div>
 
-<!-- FOOTER -->
-<footer>
-  <span>© 2026 Barani Kumar S</span>
-  <span>Full-Stack Developer · Computer Science · India</span>
-  <a href="https://github.com/Barani-Kumar-glitch" target="_blank">@Barani-Kumar-glitch</a>
-</footer>
+    <div class="about-layout">
+      <div class="about-text reveal-fade">
+        <h2 class="reveal-word-by-word">I build things<br/>that <em>actually</em><br/>work.</h2>
+        <p>I'm a passionate <strong>Full-Stack Developer</strong> and UI/UX enthusiast currently pursuing a Bachelor of Engineering in Computer Science. I specialize in building functional, aesthetically bold applications and solving complex problems through efficient code.</p>
+        <p>While I value clean design and great user experience, my work centers on practical outcomes — applications that real users rely on. <strong>Contact me about Freelancing, Django, Database Design, and Fitness Tech.</strong></p>
+        <p>I'm continually sharpening my critical thinking and expanding into <strong>Data Analysis, Cloud Security, and Advanced Database Management</strong> as my next frontier.</p>
+        
+        <div class="about-actions">
+          <a href="https://github.com/Barani-Kumar-glitch" target="_blank" class="connect-link secondary magnetic" data-magnetic><span>GitHub ↗</span></a>
+          <a href="mailto:boss002racer@gmail.com" class="connect-link primary magnetic" data-magnetic><span>Email me</span></a>
+        </div>
+      </div>
 
-<script src="assets/js/script.js"></script>
+      <div class="about-aside reveal-fade">
+        <!-- Grid layout for counters -->
+        <div class="about-stat-row">
+          <div class="about-stat">
+            <div class="num" data-count="3">0</div>
+            <div class="label">Public Repos</div>
+          </div>
+          <div class="about-stat">
+            <div class="num" data-count="2">0</div>
+            <div class="label">Live Projects</div>
+          </div>
+          <div class="about-stat">
+            <div class="num" data-count="78" data-suffix=" %">0</div>
+            <div class="label">B.E/ Computer Sci.</div>
+          </div>
+          <div class="about-stat">
+            <div class="num" data-count="999" data-infinite="true">∞</div>
+            <div class="label">Ideas Building</div>
+          </div>
+        </div>
 
-<!-- SEO of JS for my Portfolio -->
- <!-- ===== STRUCTURED DATA (JSON-LD) ===== -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Barani Kumar S",
-  "url": "https://barani-kumar-glitch.github.io/",
-  "image": "https://avatars.githubusercontent.com/u/213472218?v=4",
-  "jobTitle": "Full-Stack Developer",
-  "description": "Full-Stack Developer and UI/UX enthusiast specializing in Django, Python, PostgreSQL.",
-  "sameAs": [
-    "https://github.com/Barani-Kumar-glitch",
-    "mailto:boss002racer@gmail.com"
-  ],
-  "knowsAbout": ["Django", "Python", "PostgreSQL", "HTML5", "CSS3", "Bootstrap", "UI/UX Design", "C++", "Java"]
-}
-</script>
+        <div class="focus-list">
+          <p class="stack-category-label">Current Focus</p>
+          
+          <div class="focus-item reveal-fade">
+            <div class="focus-dot"></div>
+            <div class="focus-item-content">
+              <strong>Refining Skills</strong>
+              <p>Improving critical thinking and advanced problem-solving techniques.</p>
+            </div>
+          </div>
+          
+          <div class="focus-item reveal-fade">
+            <div class="focus-dot"></div>
+            <div class="focus-item-content">
+              <strong>Technical Growth</strong>
+              <p>Diving deeper into Data Analysis to build more intelligent applications.</p>
+            </div>
+          </div>
+          
+          <div class="focus-item reveal-fade">
+            <div class="focus-dot"></div>
+            <div class="focus-item-content">
+              <strong>The Horizon</strong>
+              <p>Mastering Cloud Security and Advanced Database Management.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONNECT SECTION ===== -->
+  <section class="connect-section">
+    <div class="connect reveal-fade">
+      <h2 class="reveal-word-by-word">Let's<br/><em>build</em><br/>together.</h2>
+      <p class="reveal-line">Open to collaborations, Freelancer, and interesting problems to solve.</p>
+      
+      <div class="connect-links reveal-fade">
+        <a href="mailto:boss002racer@gmail.com" class="connect-link primary magnetic" data-magnetic>
+          <span>boss002racer@gmail.com</span>
+        </a>
+        <a href="https://github.com/Barani-Kumar-glitch" target="_blank" class="connect-link secondary magnetic" data-magnetic>
+          <span>GitHub ↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-grid">
+      <span class="footer-copyright">© 2026 Barani Kumar S</span>
+      <span class="footer-meta">Full-Stack Developer · Computer Science · India</span>
+      <a href="https://github.com/Barani-Kumar-glitch" target="_blank" class="footer-github-link magnetic" data-magnetic>
+        <span>@Barani-Kumar-glitch</span>
+      </a>
+    </div>
+  </footer>
+
+  <!-- ===== APPLICATION JS ===== -->
+  <script src="assets/js/script.js"></script>
+
+  <!-- ===== STRUCTURED DATA (JSON-LD) ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Barani Kumar S",
+    "url": "https://barani-kumar-glitch.github.io/",
+    "image": "https://avatars.githubusercontent.com/u/213472218?v=4",
+    "jobTitle": "Full-Stack Developer",
+    "description": "Full-Stack Developer and UI/UX enthusiast specializing in Django, Python, PostgreSQL.",
+    "sameAs": [
+      "https://github.com/Barani-Kumar-glitch",
+      "mailto:boss002racer@gmail.com"
+    ],
+    "knowsAbout": ["Django", "Python", "PostgreSQL", "HTML5", "CSS3", "Bootstrap", "UI/UX Design", "C++", "Java"]
+  }
+  </script>
 
 </body>
 </html>
