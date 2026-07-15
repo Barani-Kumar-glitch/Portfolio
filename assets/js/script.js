@@ -72,7 +72,7 @@ requestAnimationFrame(updateCursorDynamics);
 
 // Bind custom hover states
 function initCursorStates() {
-  document.querySelectorAll('a, button, [data-magnetic], .tech-pill, #tech-carousel-container').forEach(el => {
+  document.querySelectorAll('a, button, [data-magnetic], .tech-pill').forEach(el => {
     el.addEventListener('mouseenter', () => {
       if (el.hasAttribute('data-cursor-text') && cursorLabel) {
         document.body.classList.add('hover-card');
@@ -474,123 +474,31 @@ function initCardCanvases() {
   });
 }
 
-// ── 3D TECH STACK CYLINDER CAROUSEL CONTROLLER ──
-let dragYRotation = 0;        // Current rotation angle of track Y
-let targetYRotation = 0;      // Target Y rotation target
-let scrollRotationY = 0;      // Scroll linked offset
-let totalRotationY = 0;       // Sum of drag and scroll offset
-let isDraggingCarousel = false;
-let startDragX = 0;
-let baseDragRotation = 0;
-let dragVelocity = 0;
+// ── TECH STACK SCROLL REVEAL ANIMATIONS ──
+function initTechStackReveal() {
+  if (typeof gsap === 'undefined') return;
 
-const carouselContainer = document.getElementById('tech-carousel-container');
-const carouselTrack = document.getElementById('tech-carousel-track');
-const carouselCards = document.querySelectorAll('.tech-carousel-card');
-
-function init3DTechCarousel() {
-  if (!carouselContainer || !carouselTrack) return;
-  
-  // Disable drag interactions on mobile screens (stacked layouts)
-  const isMobile = () => window.innerWidth <= 1024;
-  
-  // Drag start
-  const handleDragStart = (xVal) => {
-    if (isMobile()) return;
-    isDraggingCarousel = true;
-    startDragX = xVal;
-    baseDragRotation = dragYRotation;
-    dragVelocity = 0;
-  };
-  
-  carouselContainer.addEventListener('mousedown', e => handleDragStart(e.clientX));
-  carouselContainer.addEventListener('touchstart', e => handleDragStart(e.touches[0].clientX), { passive: true });
-  
-  // Drag move
-  const handleDragMove = (xVal) => {
-    if (!isDraggingCarousel || isMobile()) return;
-    const delta = xVal - startDragX;
-    // Map drag pixels directly to degrees Y rotation (0.4 coefficient)
-    targetYRotation = baseDragRotation + delta * 0.4;
-  };
-  
-  window.addEventListener('mousemove', e => handleDragMove(e.clientX));
-  window.addEventListener('touchmove', e => {
-    if (isDraggingCarousel) handleDragMove(e.touches[0].clientX);
-  }, { passive: false });
-  
-  // Drag end
-  const handleDragEnd = () => {
-    if (!isDraggingCarousel) return;
-    isDraggingCarousel = false;
-  };
-  
-  window.addEventListener('mouseup', handleDragEnd);
-  window.addEventListener('touchend', handleDragEnd);
-  window.addEventListener('mouseleave', handleDragEnd);
-
-  // Link carousel to page scroll using ScrollTrigger
-  if (typeof ScrollTrigger !== 'undefined') {
-    ScrollTrigger.create({
-      trigger: '#stack',
-      start: 'top bottom',
-      end: 'bottom top',
-      scrub: true,
-      onUpdate: self => {
-        if (isMobile()) return;
-        // Cylinder spins 180 degrees slowly as you scroll past
-        scrollRotationY = self.progress * 180;
+  // Staggered vertical slide-up reveal animation for tech stack cards on scroll
+  gsap.fromTo('.tech-stack-card',
+    {
+      opacity: 0,
+      y: 60,
+      scale: 0.95
+    },
+    {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      duration: 1.0,
+      ease: 'power3.out',
+      stagger: 0.15,
+      scrollTrigger: {
+        trigger: '#tech-stack-grid',
+        start: 'top 85%',
+        toggleActions: 'play none none none'
       }
-    });
-  }
-
-  // Loop update cylinder physics and fog states
-  function updateCarouselPhysics() {
-    if (isMobile()) {
-      // Clean transform rules if on tablet/mobile views
-      carouselTrack.style.transform = '';
-      carouselCards.forEach(c => c.classList.remove('inactive'));
-      requestAnimationFrame(updateCarouselPhysics);
-      return;
     }
-
-    // Apply physics drag lag deceleration
-    if (isDraggingCarousel) {
-      dragVelocity = targetYRotation - dragYRotation;
-      dragYRotation = targetYRotation;
-    } else {
-      dragVelocity *= 0.95; // Drag friction
-      dragYRotation += dragVelocity;
-      targetYRotation = dragYRotation;
-    }
-
-    // Sum rotation states
-    totalRotationY = dragYRotation + scrollRotationY;
-
-    // Apply rotation on track
-    carouselTrack.style.transform = `rotateY(${totalRotationY}deg)`;
-
-    // Calculate active cards facing viewport (world angle close to 0 modulo 360)
-    carouselCards.forEach((card, index) => {
-      const cardBaseAngle = index * 90;
-      // Get absolute face rotation
-      let absAngle = (totalRotationY + cardBaseAngle) % 360;
-      if (absAngle < 0) absAngle += 360;
-      
-      // Normalize to [-180, 180]
-      const normalizedAngle = absAngle > 180 ? absAngle - 360 : absAngle;
-
-      // Card is facing camera within a 45 degree bracket
-      if (Math.abs(normalizedAngle) < 45) {
-        card.classList.remove('inactive');
-      } else {
-        card.classList.add('inactive');
-      }
-    });
-
-    requestAnimationFrame(updateCarouselPhysics);
-  }
-  requestAnimationFrame(updateCarouselPhysics);
+  );
 }
 
 // ── SPLIT TYPE TEXT ANIMATION REVEALS ──
@@ -789,7 +697,7 @@ function deployAll() {
     initCardTilts();
     initBadgeParallax();
     initCardCanvases();
-    init3DTechCarousel();
+    initTechStackReveal();
     initTextAnimations();
   } catch (err) {
     console.error("Initialization error:", err);

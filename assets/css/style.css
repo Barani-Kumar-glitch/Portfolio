@@ -1277,7 +1277,7 @@ section {
   box-shadow: 0 30px 60px rgba(26, 23, 20, 0.08);
 }
 
-/* ── TECH STACK SECTION (3D SPINNING CAROUSEL) ── */
+/* ── TECH STACK SECTION (GRID SYSTEM) ── */
 .stack-section {
   max-width: 1280px;
   margin: 0 auto;
@@ -1285,53 +1285,25 @@ section {
   overflow: visible;
 }
 
-.tech-carousel-container {
+.tech-stack-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
   width: 100%;
-  height: 520px;
-  position: relative;
-  perspective: 2000px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin-top: 20px;
   overflow: visible;
-  cursor: grab;
-}
-.tech-carousel-container:active {
-  cursor: grabbing;
 }
 
-.tech-carousel-track {
-  width: 380px;
-  height: 380px;
+.tech-stack-card {
   position: relative;
+  width: 100%;
+  border-radius: 28px;
   transform-style: preserve-3d;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.1s ease-out;
+  transition: box-shadow 0.4s;
 }
 
-.tech-carousel-card {
-  position: absolute;
-  width: 380px;
-  height: 100%;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  transform-origin: center center;
-  transition: filter 0.5s, opacity 0.5s;
-}
-
-/* Position cards in a cylinder */
-.tech-carousel-card:nth-child(1) { transform: rotateY(0deg) translateZ(320px); }
-.tech-carousel-card:nth-child(2) { transform: rotateY(90deg) translateZ(320px); }
-.tech-carousel-card:nth-child(3) { transform: rotateY(180deg) translateZ(320px); }
-.tech-carousel-card:nth-child(4) { transform: rotateY(270deg) translateZ(320px); }
-
-/* Inactive cards styling (fog/depth illusion) */
-.tech-carousel-card.inactive {
-  filter: blur(2px) grayscale(0.2);
-  opacity: 0.35;
-  pointer-events: none;
+.tech-stack-card:hover {
+  box-shadow: 0 30px 60px rgba(26, 23, 20, 0.08);
 }
 
 .stack-category {
@@ -1874,33 +1846,9 @@ footer {
     min-height: auto;
   }
 
-  .tech-carousel-container {
-    height: auto;
-    perspective: none;
-  }
-
-  .tech-carousel-track {
-    width: 100%;
-    height: auto;
-    transform: none !important;
-    display: grid;
+  .tech-stack-grid {
     grid-template-columns: 1fr;
     gap: 24px;
-    transform-style: flat;
-  }
-
-  .tech-carousel-card {
-    position: static;
-    width: 100%;
-    height: auto;
-    transform: none !important;
-    backface-visibility: visible;
-  }
-  
-  .tech-carousel-card.inactive {
-    filter: none;
-    opacity: 1;
-    pointer-events: all;
   }
 
   .stack-category {
