@@ -264,52 +264,52 @@ body.hover-card .cursor-label {
 
 /* ── DOCK NAVIGATION ── */
 .dock-nav {
-  position: fixed;
-  top: 24px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: calc(100% - 96px);
-  max-width: 1280px;
-  padding: 16px 32px;
-  background: var(--card-glass);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--border);
-  border-radius: 100px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
-  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
-              top 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
-              width 0.4s cubic-bezier(0.25, 1, 0.5, 1),
-              border-radius 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  position: fixed !important;
+  top: 24px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  z-index: 1000 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: calc(100% - 96px) !important;
+  max-width: 1280px !important;
+  padding: 16px 32px !important;
+  background: var(--card-glass) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 100px !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03) !important;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important, 
+              top 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important, 
+              width 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important,
+              border-radius 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
 }
 
 /* Scrolled nav dock styling */
 .dock-nav.scrolled {
-  top: 12px;
-  width: 600px;
-  max-width: 90%;
-  padding: 12px 24px;
-  background: rgba(26, 23, 20, 0.95);
-  border-color: rgba(255, 255, 255, 0.05);
+  top: 12px !important;
+  width: 600px !important;
+  max-width: 90% !important;
+  padding: 12px 24px !important;
+  background: rgba(26, 23, 20, 0.95) !important;
+  border-color: rgba(255, 255, 255, 0.05) !important;
 }
 .dock-nav.scrolled .nav-logo, 
 .dock-nav.scrolled .nav-links a {
-  color: var(--bg);
+  color: var(--bg) !important;
 }
 .dock-nav.scrolled .nav-link span::after {
-  background: var(--bg);
+  background: var(--bg) !important;
 }
 .dock-nav.scrolled .nav-contact-btn {
-  border-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.15) !important;
 }
 .dock-nav.scrolled .nav-contact-btn:hover {
-  background: var(--bg);
-  border-color: var(--bg);
-  color: var(--ink);
+  background: var(--bg) !important;
+  border-color: var(--bg) !important;
+  color: var(--ink) !important;
 }
 
 .nav-logo {
@@ -1768,8 +1768,8 @@ footer {
 /* Laptops & Tablets (under 1024px) */
 @media (max-width: 1024px) {
   .dock-nav {
-    width: calc(100% - 48px);
-    padding: 14px 28px;
+    width: calc(100% - 48px) !important;
+    padding: 14px 28px !important;
   }
   
   .hero {
@@ -1899,12 +1899,12 @@ footer {
   }
 
   .dock-nav {
-    border-radius: 100px;
+    border-radius: 100px !important;
   }
   
   .dock-nav.scrolled {
-    width: calc(100% - 24px);
-    border-radius: 100px;
+    width: calc(100% - 24px) !important;
+    border-radius: 100px !important;
   }
 
   .nav-logo {
