@@ -2272,6 +2272,16 @@ footer {
 .exp-bullets li strong {
   color: var(--ink);
   font-weight: 600;
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+
+/* Text wrapper — the single flex child that holds all inline content */
+.exp-bullets li > span:last-child {
+  display: inline;
+  flex: 1;
+  line-height: inherit;
 }
 
 .exp-bullet-icon {
